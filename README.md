@@ -2,10 +2,10 @@
 
 This repo includes three runnable examples for event-based and frame-based SNNs:
 
-1. **MNIST MLP SNN** — classic 784→300→10 network with Leaky IF neurons  
+1. **MNIST SNN** — classic 784→300→10 network with Leaky IF neurons  
    File: `snn_mnist.py` (your cleaned script)
 
-2. **NMNIST MLP SNN (Tonic)** — events → framed tensors → MLP-style SNN  
+2. **NMNIST SNN (Tonic)** — events → framed tensors → MLP-style SNN  
    File: `nmnist_mlp.py`
 
 3. **DVSGesture 3-Layer Conv SNN (Tonic)** — events → framed tensors → Conv SNN  
@@ -36,15 +36,17 @@ pip install snntorch tonic numpy
 > The first run will auto-download datasets to `./data/` (or a path you choose via `--save-to` for Tonic scripts).
 
 ---
+### Clone this repo
+git clone https://github.com/oukwuaba/snntest.git
 
 ## 2) File Overview
 
 ```
 .
-├── snn_mnist.py                 # Frame-based MNIST SNN (784→300→10, Leaky units)
-├── nmnist_mlp.py                # NMNIST via Tonic + MLP SNN, frame-accumulated
+├── mnist.py                 # Frame-based MNIST SNN (784→300→10, Leaky units)
+├── nmnist.py                # NMNIST via Tonic + MLP SNN, frame-accumulated
 ├── dvs_conv3.py                 # DVSGesture via Tonic + 3-layer Conv SNN
-└── SNN_tonic_snntorch_demo.ipynb# Notebook covering NMNIST + DVSGesture
+└── SNN_tonic_snntorch.ipynb# Notebook covering NMNIST + DVSGesture
 ```
 
 ---
@@ -70,7 +72,7 @@ All scripts share similar flags:
 
 ## 4) Model Details & Commands
 
-### A. MNIST MLP SNN — `snn_mnist.py`
+### A. MNIST MLP SNN — `mnist.py`
 
 - Architecture: `784 → 300 → 10` with `snn.Leaky` layers  
 - Temporal handling: repeats the static image across `NUM_STEPS` in `forward`  
@@ -88,7 +90,7 @@ python mnist.py --model-path snnmodel2.pth --epochs 0
 
 ---
 
-### B. NMNIST MLP SNN (Tonic) — `nmnist_mlp.py`
+### B. NMNIST MLP SNN (Tonic) — `nmnist.py`
 
 - Dataset: **NMNIST** (events) via `tonic.datasets.NMNIST`
 - Transform: `ToFrame(..., n_time_bins=NUM_STEPS)` → frames shaped `[B,T,C,H,W]` with `C=2`
