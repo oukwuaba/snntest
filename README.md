@@ -1,4 +1,4 @@
-# Spiking Neural Network Demos (snnTorch + Tonic)
+# Spiking Neural Network Models
 
 This repo includes three runnable examples for event-based and frame-based SNNs:
 
