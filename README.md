@@ -3,17 +3,17 @@
 This repo includes three runnable examples for event-based and frame-based SNNs:
 
 1. **MNIST SNN** — classic 784→300→10 network with Leaky IF neurons  
-   File: `snn_mnist.py` (your cleaned script)
+   File: `mnist.py` (your cleaned script)
 
-2. **NMNIST SNN (Tonic)** — events → framed tensors → MLP-style SNN  
-   File: `nmnist_mlp.py`
+2. **NMNIST SNN (Tonic)** — events → framed tensors  
+   File: `nmnist.py`
 
 3. **DVSGesture 3-Layer Conv SNN (Tonic)** — events → framed tensors → Conv SNN  
    File: `dvs_conv3.py`
 
 A companion notebook is included for quick, interactive runs:
 
-- `SNN_tonic_snntorch_demo.ipynb`
+- `SNN_tonic_snntorch.ipynb`
 
 ---
 
